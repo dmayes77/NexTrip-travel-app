@@ -1,0 +1,3 @@
+geonames api structure http://api.geonames.org/postalCodeSearch?placename=chattanooga,%20tn&maxRows=1&username=Pprocess.env.GN_USERNAME
+https://api.weatherbit.io/v2.0/current?&lat=38.123&lon=-78.543&key=process.env.WEATHERBIT_KEY
+https://pixabay.com/api/?key=process.env.PIXABAY_KEY&q=chattanooga&image_type=photo
