@@ -1,0 +1,32 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: block;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Fira Sans', arial, sans-serif;
+  font-weight: 300;
+  margin: 0 auto;
+  line-height: 1.65;
+  position: relative;
+  background-image: url('../media/beach.jpg');
+  background-size: cover;
+}
+
+main {
+  flex: 2;
+}
+
+section {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+h1 {
+  font-size: 5.2rem;
+}
+
+@media (max-width: 1024px) {
+}

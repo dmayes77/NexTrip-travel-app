@@ -1,5 +1,18 @@
+@import '_theme.scss';
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px 40px;
+  background-color: transparent;
+  font-family: 'Permanent Marker';
+  color: $midnight-blue;
+  .title {
+    text-shadow: 4px 4px 4px #fff;
+    font-size: 8rem;
+    padding-top: -5rem;
+  }
+  span {
+    font-size: 1.6rem;
+  }
 }
