@@ -2,23 +2,28 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>NexTrip</title>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <body>
 
-        <header>
-            <h1 class="title">
-                NexTrip
-            </h1>
+       
+        <header id="header">
+            <span class="title">NexTrip</span>
         </header>
+      
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
+              <div class="holder zip">
+                <label for="zip">Enter Zipcode here</label>
+                <input type="text" id="zip" placeholder="enter zip code here" />
+                <button id="generate" type="submit">Generate</button>
+              </div>
+                <!-- <form class="" onsubmit="return handleSubmit(event)">
                     <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
                     <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
+                </form> -->
             <section>
 
             <section>
@@ -27,7 +32,7 @@
             </section>
         </main>
 
-        <footer>
+        <footer id='footer'>
             <p>This is a footer</p>
         </footer>
         <script>
