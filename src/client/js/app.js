@@ -1,35 +1,35 @@
 import 'regenerator-runtime/runtime.js';
-import * as env from './env';
 
-const geoURL = (place) => {
-  return `http://api.geonames.org/postalCodeSearchJSON?placename=${place}&country=US&maxRows=1&username=${env.GN_USERNAME}`;
-};
-
-const pixURL = (place) => {
-  return `https://pixabay.com/api/?key=${env.PIXABAY_KEY}&q=${place}+city&image_type=photo`;
-};
-
-const weatherURL = (lat, lng) => {
-  return `https://api.weatherbit.io/v2.0/forecast/daily?&days=7&lat=${lat}&lon=${lng}&units=I&key=${env.WEATHERBIT_KEY}`;
-};
-
-const url = `http://localhost:8080/travel`;
+let data = [];
+const url = 'http://localhost:8080';
 
 const getData = async () => {
   const place = await document.getElementById('zip').value;
-  const geoRes = await fetch(geoURL(place));
+  //get geodata
+  const geoRes = await fetch(`${url}/getGeoNames/${place}`);
   try {
     const geoData = await geoRes.json();
-    let { lat, lng, placeName } = geoData.postalCodes[0];
-    const weatherRes = await fetch(weatherURL(lat, lng));
+    let { lat, lng, placeName } = geoData[0];
+    // get weather
+    const weatherRes = await fetch(`${url}/getWeather/${lat}/${lng}`);
     try {
       const weatherData = await weatherRes.json();
       const forecast = weatherData.data;
-      const imgRes = await fetch(pixURL(placeName));
+      const state = weatherData.state_code;
+      //get images
+      const imgRes = await fetch(`${url}/getImage/${placeName}`);
       try {
         const imgData = await imgRes.json();
-        let imgURL = imgData.hits[0].webformatURL;
-        return { data: { placeName, lat, lng, imgURL, forecast } };
+        console.log('img data', imgData);
+        data = {
+          city: placeName,
+          state,
+          lat,
+          lng,
+          imgData,
+          forecast,
+        };
+        return data;
       } catch (error) {
         console.log('error', error);
       }
@@ -51,10 +51,10 @@ const postData = async (url = '', newData = {}) => {
   });
   try {
     const data = await res.json();
-    console.log(data);
+    console.log('data sent', data);
     return data;
   } catch (err) {
-    console.log('error:', err);
+    console.log('data not sent:', err);
     return false;
   }
 };
@@ -62,7 +62,7 @@ const postData = async (url = '', newData = {}) => {
 document
   .getElementById('generate')
   .addEventListener('click', () =>
-    getData().then((data) => postData(url, data))
+    getData().then((data) => postData(`${url}/travel`, data))
   );
 
 export { getData };
