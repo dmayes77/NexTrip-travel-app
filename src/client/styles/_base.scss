@@ -1,3 +1,5 @@
+@import './_theme.scss';
+
 html {
   font-size: 62.5%;
 }
@@ -5,9 +7,9 @@ html {
 body {
   display: block;
   flex-direction: column;
-  min-height: 100vh;
   font-family: 'Fira Sans', arial, sans-serif;
   font-weight: 300;
+  color: $dk-blue;
   margin: 0 auto;
   line-height: 1.65;
   position: relative;
@@ -18,11 +20,13 @@ body {
 
 main {
   flex: 2;
+  min-height: 100vh;
+  padding: 0 8em;
 }
 
 section {
   max-width: 800px;
-  margin: 50px auto;
+  margin: $xl auto;
 }
 
 h1 {

@@ -1,4 +1,15 @@
 // colors
-$midnight-blue: #2e3047;
-$mint: #3bba9c;
+$blue: #000080;
+$dk-blue: mix(black, $blue, 60%);
+$blue-smoke: rgba(190, 225, 245, 0.7);
+
+$white: #e9f1f4;
 $slate-gray: #707793;
+$input-bg: mix(white, $slate-gray, 70%);
+
+// size
+$xs: 1.2rem;
+$sm: 1.6rem;
+$md: 2.4rem;
+$lg: 3.6rem;
+$xl: 4.8rem;
