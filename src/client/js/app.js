@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime.js';
+import { updateUI } from './updateUI';
 
 let data = [];
 const url = 'http://localhost:8080';
@@ -14,19 +15,21 @@ const getData = async () => {
     const weatherRes = await fetch(`${url}/getWeather/${lat}/${lng}`);
     try {
       const weatherData = await weatherRes.json();
+      console.log('weather', weatherData);
       const forecast = weatherData.data;
       const state = weatherData.state_code;
       //get images
       const imgRes = await fetch(`${url}/getImage/${placeName}`);
       try {
-        const imgData = await imgRes.json();
-        console.log('img data', imgData);
+        const imageURL = await imgRes.json();
+        const { imgURL } = imageURL;
+        console.log(imgURL);
         data = {
           city: placeName,
           state,
           lat,
           lng,
-          imgData,
+          imgURL,
           forecast,
         };
         return data;
@@ -62,7 +65,7 @@ const postData = async (url = '', newData = {}) => {
 document
   .getElementById('generate')
   .addEventListener('click', () =>
-    getData().then((data) => postData(`${url}/travel`, data))
+    getData().then((data) => postData(`${url}/travel`, data).then(updateUI()))
   );
 
 export { getData };

@@ -31,7 +31,6 @@ app.get('/travel', (req, res) => {
 
 app.post('/travel', (req, res) => {
   projectData = req.body;
-  console.log(projectData);
   res.send(projectData);
 });
 
@@ -53,7 +52,7 @@ app.get('/getGeoNames/:destination', async (req, res) => {
 });
 
 const weatherURL = (lat, lng) => {
-  return `https://api.weatherbit.io/v2.0/forecast/daily?&days=7&lat=${lat}&lon=${lng}&units=I&key=${process.env.WEATHERBIT_KEY}`;
+  return `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${lng}&units=I&key=${process.env.WEATHERBIT_KEY}`;
 };
 
 app.get('/getWeather/:lat/:lng', async (req, res) => {
@@ -77,7 +76,12 @@ app.get('/getImage/:city', async (req, res) => {
   const response = await fetch(pixURL(city, state));
   try {
     const data = await response.json();
-    res.send(data.hits[0]);
+    data.total !== 0
+      ? res.send({ imgURL: data.hits[0].webformatURL })
+      : res.send({
+          imgURL:
+            'https://cdn.pixabay.com/photo/2015/07/19/11/05/panels-851426_1280.jpg',
+        });
   } catch (error) {
     console.log('error', error);
   }
