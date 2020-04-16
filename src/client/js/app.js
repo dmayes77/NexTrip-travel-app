@@ -1,5 +1,6 @@
 import 'regenerator-runtime/runtime.js';
 import { updateUI } from './updateUI';
+import fetch from 'node-fetch';
 
 let data = [];
 const url = 'http://localhost:8080';
@@ -15,7 +16,6 @@ const getData = async () => {
     const weatherRes = await fetch(`${url}/getWeather/${lat}/${lng}`);
     try {
       const weatherData = await weatherRes.json();
-      console.log('weather', weatherData);
       const forecast = weatherData.data;
       const state = weatherData.state_code;
       //get images
@@ -23,16 +23,35 @@ const getData = async () => {
       try {
         const imageURL = await imgRes.json();
         const { imgURL } = imageURL;
-        console.log(imgURL);
-        data = {
-          city: placeName,
-          state,
-          lat,
-          lng,
-          imgURL,
-          forecast,
-        };
-        return data;
+        //get local restaurant data
+        const restaurantRes = await fetch(
+          `${url}/yelp/restaurants/${placeName}/${state}`
+        );
+        try {
+          const restaurants = await restaurantRes.json();
+          // get local events data
+          const eventRes = await fetch(
+            `${url}/yelp/events/${placeName}/${state}`
+          );
+          try {
+            const events = await eventRes.json();
+            data = {
+              city: placeName,
+              state,
+              lat,
+              lng,
+              imgURL,
+              forecast,
+              restaurants,
+              events,
+            };
+            return data;
+          } catch (error) {
+            console.log('error', error);
+          }
+        } catch (error) {
+          console.log('error', error);
+        }
       } catch (error) {
         console.log('error', error);
       }
