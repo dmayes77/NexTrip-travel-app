@@ -4,20 +4,36 @@
     <meta charset="utf-8" />
     <title>NexTrip</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Permanent+Marker&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap&family=Monoton&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/da39185c1c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
+    <nav>
+      <div class="title"><i class="fas fa-road"></i>NexTrip</div>
+    </nav>
     <header id="header">
-      <span class="title">NexTrip</span>
+      <h1>NexTrip<i class="fas fa-road"></i></h1>
+      <h3>
+        Plan your next trip.<br />
+        See local restaurant reviews, events, and weather
+      </h3>
     </header>
 
     <main id="main-container">
       <section id="entry-container">
-        <label for="zip">Enter City and State or Zipcode here</label>
-        <input type="text" id="zip" placeholder="Chattanooga, TN" />
+        <label for="zip"
+          >Enter City and State or Zipcode and travel date here</label
+        >
+        <div id="inputArea">
+          <input type="text" id="zip" placeholder="Chattanooga, TN" />
+          <input type="text" id="date" placeholder="12/25/2020" />
+        </div>
         <button id="generate" type="submit">GeTrip</button>
       </section>
       <section id="results-container">
