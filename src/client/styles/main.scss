@@ -3,9 +3,20 @@
 main {
   #entry-container,
   #results-container {
-    background-color: $blue-smoke;
-    padding: $lg;
     margin: 0;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #inputArea {
+    display: flex;
+    flex-direction: row;
+  }
+  #zip,
+  #date {
+    width: 50%;
   }
   label {
     font-size: $sm;
@@ -13,12 +24,32 @@ main {
   input {
     padding: 0.5rem 2rem;
     width: 100%;
+    color: $blue;
     line-height: $md;
     margin: 1rem 0;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid $dk-blue;
+    border-bottom: 1px solid $blue;
     font-size: $md;
     outline: none;
+  }
+  ::placeholder {
+    color: $powder-blue;
+  }
+  button {
+    background-color: $orange;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: $md;
+    width: 50%;
+    font-size: $sm;
+    font-family: 'Open Sans';
+    font-weight: 700;
   }
 }

@@ -7,30 +7,38 @@ html {
 body {
   display: block;
   flex-direction: column;
-  font-family: 'Fira Sans', arial, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
   font-weight: 300;
-  color: $dk-blue;
+  color: $blue;
   margin: 0 auto;
   line-height: 1.65;
   position: relative;
-  background-image: url('../media/pier.jpg');
   background-size: cover;
   background-position: center;
 }
 
 main {
-  flex: 2;
-  min-height: 100vh;
-  padding: 0 8em;
+  padding: $xl * 1.25;
+  background-color: $lt-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-section {
-  max-width: 800px;
-  margin: $xl auto;
-}
+// section {
+//   margin: $xl auto;
+// }
 
 h1 {
-  font-size: 5.2rem;
+  font-size: 15rem;
+}
+
+p {
+  font-size: $sm;
+}
+
+h3 {
+  font-size: $lg;
 }
 
 @media (max-width: 1024px) {
