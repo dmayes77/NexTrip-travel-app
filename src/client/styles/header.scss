@@ -15,9 +15,8 @@ header {
   }
   i {
     color: $orange;
-    height: auto;
     margin-top: $lg;
-    margin-left: $xs;
+    margin-left: 1.1rem;
   }
 }
 
@@ -39,5 +38,6 @@ nav {
     font-weight: 900;
     padding: 0 $xl;
     letter-spacing: -0.15rem;
+    font-family: 'Roboto';
   }
 }

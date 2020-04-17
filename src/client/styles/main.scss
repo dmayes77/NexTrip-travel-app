@@ -1,14 +1,23 @@
 @import './_theme.scss';
 
 main {
+  padding: $xl * 1.25;
+  background-color: $lt-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   #entry-container,
   #results-container {
     margin: 0;
+    margin-bottom: $xl;
     width: 100%;
     max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    label {
+      font-size: $md;
+    }
   }
   #inputArea {
     display: flex;
@@ -49,7 +58,7 @@ main {
     border-radius: $md;
     width: 50%;
     font-size: $sm;
-    font-family: 'Open Sans';
+    font-family: 'Montserrat';
     font-weight: 700;
   }
 }
