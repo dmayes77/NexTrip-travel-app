@@ -1,14 +1,10 @@
 import 'regenerator-runtime/runtime.js';
-import { updateUI } from './updateUI';
 import fetch from 'node-fetch';
 
 let data = [];
-const url = 'http://localhost:8080';
 
-const getData = async () => {
-  const place = await document.getElementById('zip').value;
-  //get geodata
-  const geoRes = await fetch(`${url}/getGeoNames/${place}`);
+const getData = async (url, location) => {
+  const geoRes = await fetch(`${url}/getGeoNames/${location}`);
   try {
     const geoData = await geoRes.json();
     let { lat, lng, placeName } = geoData[0];
@@ -47,19 +43,19 @@ const getData = async () => {
             };
             return data;
           } catch (error) {
-            console.log('error', error);
+            console.log('yelp eevents error', error);
           }
         } catch (error) {
-          console.log('error', error);
+          console.log('yelp restaurants error', error);
         }
       } catch (error) {
-        console.log('error', error);
+        console.log('getImage error', error);
       }
     } catch (error) {
-      console.log('error', error);
+      console.log('getWeather error', error);
     }
   } catch (error) {
-    console.log('error:', error);
+    console.log('getGeoNames error:', error);
   }
 };
 
@@ -81,10 +77,4 @@ const postData = async (url = '', newData = {}) => {
   }
 };
 
-document
-  .getElementById('generate')
-  .addEventListener('click', () =>
-    getData().then((data) => postData(`${url}/travel`, data).then(updateUI()))
-  );
-
-export { getData };
+export { getData, postData };
