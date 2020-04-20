@@ -69,16 +69,17 @@ app.get('/getWeather/:lat/:lng', async (req, res) => {
 });
 
 const pixURL = (city) => {
-  return `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${city}+city&image_type=photo`;
+  return `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${city}+city&image_type=photo&SameSite=None`;
 };
 
 app.get('/getImage/:city', async (req, res) => {
   let { city, state } = req.params;
   const response = await fetch(pixURL(city, state));
   try {
+    // response.setHeader('SameSite=None');
     const data = await response.json();
     data.total !== 0
-      ? res.send({ imgURL: data.hits[0].webformatURL })
+      ? res.send({ imgURL: data.hits[0].largeImageURL })
       : res.send({
           imgURL:
             'https://cdn.pixabay.com/photo/2015/07/19/11/05/panels-851426_1280.jpg',
