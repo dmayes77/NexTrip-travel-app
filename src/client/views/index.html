@@ -25,14 +25,36 @@ html
 
     <main id="main-container">
       <section id="entry-container">
-        <label for="zip"
-          >Enter City and State or Zipcode and Arrival Date here</label
-        >
-        <div id="inputArea">
-          <input type="text" id="zip" placeholder="Chattanooga, TN" />
-          <input type="text" id="date" placeholder="12/25/2020" />
-        </div>
-        <button id="generate" type="submit">GeTrip</button>
+        <form class="" onsubmit="return Client.handleSubmit(event)">
+          <label for="location"
+            >Enter City and State or Zipcode and Arrival Date here</label
+          >
+          <div id="inputArea">
+            <input
+              id="location"
+              type="text"
+              name="input"
+              value=""
+              placeholder="Chattanooga, TN"
+            />
+            <input
+              id="date"
+              type="dtae"
+              name="date"
+              value=""
+              placeholder="12/25/2020"
+            />
+          </div>
+
+          <input
+            class="button"
+            type="submit"
+            name=""
+            value="submit"
+            onclick="return Client.handleSubmit(event)"
+            onsubmit="return Client.handleSubmit(event)"
+          />
+        </form>
       </section>
       <section id="results-container">
         <div id="results"></div>
