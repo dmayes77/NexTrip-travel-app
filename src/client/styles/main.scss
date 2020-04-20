@@ -6,10 +6,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #entry-container {
+    margin: $xl 0;
+  }
   #entry-container,
   #results-container {
-    margin: 0;
-    margin-bottom: $xl;
     width: 100%;
     max-width: 800px;
     display: flex;
@@ -23,7 +29,7 @@ main {
     display: flex;
     flex-direction: row;
   }
-  #zip,
+  #location,
   #date {
     width: 50%;
   }
@@ -45,7 +51,7 @@ main {
   ::placeholder {
     color: $powder-blue;
   }
-  button {
+  .button {
     background-color: $orange;
     border: none;
     color: white;

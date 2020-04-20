@@ -1,0 +1,11 @@
+@import './theme';
+
+footer {
+  overflow: hidden;
+  background-color: $blue;
+  color: $white;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1.7rem 0;
+}
