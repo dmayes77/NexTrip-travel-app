@@ -1,29 +1,35 @@
-# Webpack Express Example App
+## NexTrip - Udacity Travel App Capstone
 
-The goal of this repo is be an example of a basic but functional app built on Express and Webpack.
+Plan your next trip.\
+See local restaurant reviews, events, and weather.\
+Will give you forecast for 5 days.\
+US cities only!!
 
-If you want to follow along, start from branch 0-initial-setup. Each branch in this project is a step along the path to creating a fully functional webpack setup. In each branch, there will be a documentation file that lists out the steps taken in that branch (each step is also roughly a git commit if you look at the history) which you can use as a checklist when setting up your own projects. 
+## How to get the app
 
-## What we will cover
+### Clone or download the project on your computer
 
-We will cover:
+### Open the terminal, cd in the project folder and run the following commands:
 
-- Webpack entry point
-- Webpack output and dist folder
-- Webpack Loaders
-- Webpack Plugins
-- Webpack Mode
-- Tools for convenient Webpack development
-
-## Get Up and Running
-
-Fork this repo, then clone the branch of your choice from your forked repo down to your computer:
-
-```
-git clone -- git@github.com:[your-user-name]/webpack-express.git --
+```markdown
+- npm i (to install all the packages)
+- npm run dev (to start the server and client)
+- localhost:8081 will open in new tab
+- Enter a city and a date!
+- NOTE: if your search fails please refresh the website (CTRL + SHIFT + R)
 ```
 
-`cd` into your new folder and run:
-- ```npm install```
-- ```npm start``` to start the app
-- this app runs on localhost:8080, but you can of course edit that in server.js
+## How to run the tests:
+
+```markdown
+- npm run test (this will run 2 tests)
+- Make sure the server is NOT running to pass the server test!
+```
+
+## What extra features I added:
+
+- Display countdown in forecast
+- Pull an image for cities without images
+- App Yelp API to give restaurant and locacl event information
+- Add parallax and card flip for a more dynamic site
+- Material Design for modern look and feel
