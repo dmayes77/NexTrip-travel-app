@@ -70,6 +70,25 @@
       padding: $md $xs;
       display: flex;
       justify-content: space-evenly;
+      .flip-card-front {
+        background-color: $white;
+        padding: 1rem $md;
+        border: 0.3rem solid $blue;
+        .title {
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+        img {
+          width: 6rem;
+          height: auto;
+        }
+      }
+      .flip-card:hover .flip-card-inner {
+        transform: none;
+      }
     }
 
     //flip-card from https://www.w3schools.com/howto/howto_css_flip_card.asp

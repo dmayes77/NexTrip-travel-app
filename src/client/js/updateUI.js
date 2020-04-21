@@ -86,6 +86,7 @@ const updateUI = (data, date) => {
   dates.forEach((date) => datesArr.push(moment(date).format('YYYY-MM-DD')));
 
   const { forecast } = data;
+  console.log(forecast);
   let forcastDisplay = forecast
     .filter((daily) => {
       if (datesArr.includes(daily.datetime)) {
@@ -97,12 +98,18 @@ const updateUI = (data, date) => {
       return `
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
-            ${daily.datetime}
-              <img
-                src="https://pixabay.com/get/57e7d44a4d55ae14f1dc8460962932771039dee6504c704c7d287bdc924acd5b_640.jpg"
-                alt="Avatar"
-              />
+            <div class="flip-card-front inner_box">
+            <p class="title">${moment(daily.datetime).format(
+              'MMM Do'
+            )} ${moment(daily.datetime).fromNow()}</p>
+            <p>${Math.round(daily.temp)}°F</p>
+            <p>Hi ${Math.round(daily.max_temp)}° / Lo ${Math.round(
+        daily.min_temp
+      )}°</p>
+              <img src="https://www.weatherbit.io/static/img/icons/${
+                daily.weather.icon
+              }.png"/>
+              <p>${daily.weather.description}</p>
             </div>
             <div class="flip-card-back">
               <p>John Doe</p>
