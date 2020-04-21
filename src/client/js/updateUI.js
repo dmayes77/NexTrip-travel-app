@@ -44,11 +44,10 @@ const updateUI = (data, date) => {
               <p>${restaurant.location.address1}</p>
               <p>${restaurant.location.city}, ${restaurant.location.state} ${restaurant.location.zip_code}</p>
               <p>${restaurant.display_phone}</p>
+              <p>Rating ${restaurant.rating}</p>
             </div>
             <div id="rating-review">
-              <small>Rating ${restaurant.rating}</small>
-              <span>Price ${restaurant.price}</span>
-              <span><a href="${restaurant.url}">See more ⇨</a></span>
+              <span class="end"><a href="${restaurant.url}" target="_blank">See more ⇨</a></span>
             </div>
           </div>
         </div>
@@ -67,10 +66,9 @@ const updateUI = (data, date) => {
           <p class="flip-card-title">${event.name}</p>
             <p>${event.location.address1}</p>
             <p>${event.location.city}, ${event.location.state} ${event.location.zip_code}</p>
-            <p>${event.display_phone}</p>
             </div>
             <div id="rating-review">
-              <span><a href="${event.url}">See more ⇨</a></span>
+              <span><a href="${event.event_site_url}" target="_blank">See more ⇨</a></span>
             </div>
 
           </div>
