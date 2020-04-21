@@ -1,5 +1,4 @@
 import 'regenerator-runtime/runtime.js';
-import fetch from 'node-fetch';
 
 let data = [];
 
@@ -69,7 +68,6 @@ const postData = async (url = '', newData = {}) => {
   });
   try {
     const data = await res.json();
-    console.log('data sent', data);
     return data;
   } catch (err) {
     console.log('data not sent:', err);
