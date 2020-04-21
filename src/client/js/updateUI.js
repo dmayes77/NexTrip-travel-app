@@ -86,7 +86,6 @@ const updateUI = (data, date) => {
   dates.forEach((date) => datesArr.push(moment(date).format('YYYY-MM-DD')));
 
   const { forecast } = data;
-  console.log(forecast);
   let forcastDisplay = forecast
     .filter((daily) => {
       if (datesArr.includes(daily.datetime)) {
