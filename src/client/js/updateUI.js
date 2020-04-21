@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const updateUI = (data, date) => {
   let displayData = `          
     <div id="card">
@@ -76,16 +78,19 @@ const updateUI = (data, date) => {
       </div>`;
   });
 
-  const { forecast } = data;
-  let m = date.split('/')[0];
-  let d = date.split('/')[1];
-  let y = date.split('/')[2];
-  const newDate = `${y}-${m}-${Number(d) + 7}`;
+  let userDate = moment(date).format('YYYY-MM-DD');
+  let y = Number(userDate.split('-')[0]);
+  let m = Number(userDate.split('-')[1]) - 1;
+  let d = Number(userDate.split('-')[2]);
 
-  console.log(newDate);
+  let datesArr = [];
+  let dates = Client.getDates(new Date(y, m, d), new Date(y, m, d + 4));
+  dates.forEach((date) => datesArr.push(moment(date).format('YYYY-MM-DD')));
+
+  const { forecast } = data;
   let forcastDisplay = forecast
     .filter((daily) => {
-      if (newDate) {
+      if (datesArr.includes(daily.datetime)) {
         return true;
       }
       return false;
