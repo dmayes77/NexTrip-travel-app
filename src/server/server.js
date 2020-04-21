@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('regenerator-runtime/runtime.js');
 
 const path = require('path');
 const express = require('express');
@@ -8,7 +9,7 @@ const fetch = require('node-fetch');
 const yelp = require('yelp-fusion');
 const PORT = process.env.PORT || 8080;
 
-projectData = {};
+let projectData = {};
 
 const app = express();
 
