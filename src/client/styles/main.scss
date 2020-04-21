@@ -68,3 +68,16 @@ main {
     font-weight: 700;
   }
 }
+
+@media (max-width: 1024px) {
+  main {
+    padding: $md 1rem;
+  }
+  label {
+    text-align: center;
+  }
+  #inputArea {
+    display: block;
+    // flex-direction: column;
+  }
+}

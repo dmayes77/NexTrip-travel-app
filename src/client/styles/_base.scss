@@ -33,4 +33,10 @@ h3 {
 }
 
 @media (max-width: 1024px) {
+  h1 {
+    font-size: $xl * 1.5;
+  }
+  p {
+    font-size: $xs;
+  }
 }

@@ -40,3 +40,24 @@ nav {
     font-family: 'Roboto';
   }
 }
+
+@media (max-width: 1024px) {
+  header {
+    height: auto;
+    padding: $md 1rem;
+    h1 {
+      display: none;
+    }
+  }
+  nav {
+    height: $xl * 3.25;
+    padding: $lg 0;
+    i {
+      color: $orange;
+    }
+    .title {
+      font-size: $lg * 1.6;
+      text-align: center;
+    }
+  }
+}
