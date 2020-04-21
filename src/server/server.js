@@ -36,8 +36,8 @@ app.post('/travel', (req, res) => {
   res.send(projectData);
 });
 
-const geoURL = (place) => {
-  return `http://api.geonames.org/postalCodeSearchJSON?placename=${place}&country=US&maxRows=1&username=${process.env.GN_USERNAME}`;
+const geoURL = (destination) => {
+  return `http://api.geonames.org/postalCodeSearchJSON?placename=${destination}&country=US&maxRows=1&username=${process.env.GN_USERNAME}`;
 };
 
 app.get('/getGeoNames/:destination', async (req, res) => {
@@ -73,18 +73,17 @@ const pixURL = (city) => {
   return `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${city}+city&image_type=photo&SameSite=None`;
 };
 
+const noImgURL = `https://pixabay.com/get/57e0d44a435bad14f1dc8460962932771039dee6504c704c7d287fdd9245c55e_640.jpg`;
+
 app.get('/getImage/:city', async (req, res) => {
-  let { city, state } = req.params;
-  const response = await fetch(pixURL(city, state));
+  let { city } = req.params;
+  const response = await fetch(pixURL(city));
   try {
     // response.setHeader('SameSite=None');
     const data = await response.json();
     data.total !== 0
       ? res.send({ imgURL: data.hits[0].largeImageURL })
-      : res.send({
-          imgURL:
-            'https://cdn.pixabay.com/photo/2015/07/19/11/05/panels-851426_1280.jpg',
-        });
+      : res.send({ imgURL: noImgURL });
   } catch (error) {
     console.log('error', error);
   }
