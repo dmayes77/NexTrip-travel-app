@@ -75,4 +75,8 @@ const postData = async (url = '', newData = {}) => {
   }
 };
 
+document
+  .getElementById('submit-btn')
+  .addEventListener('click', () => Client.handleSubmit(event));
+
 export { getData, postData };
