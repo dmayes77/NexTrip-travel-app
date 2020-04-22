@@ -15,15 +15,16 @@ html
     <nav>
       <div class="title"><i class="fas fa-road"></i>NexTrip</div>
     </nav>
-    <header id="header">
-      <h1>NexTrip<i class="fas fa-road"></i></h1>
-      <h3>
-        Plan your next trip.<br />
-        See local restaurant reviews, events, and weather
-      </h3>
-    </header>
 
     <main id="main-container">
+      <header id="header">
+        <h1>NexTrip<i class="fas fa-road"></i></h1>
+        <h3>
+          Plan your next trip.<br />
+          See local restaurant reviews, events, and weather
+        </h3>
+      </header>
+
       <section id="entry-container">
         <form class="" onsubmit="return Client.handleSubmit(event)">
           <label for="location"
@@ -46,7 +47,6 @@ html
             />
           </div>
           <div id="error"></div>
-          <!-- <div id="date-error"></div> -->
 
           <input
             class="button"
