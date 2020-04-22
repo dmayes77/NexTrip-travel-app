@@ -38,21 +38,17 @@ app.post('/travel', (req, res) => {
 
 const geoURL = (city, state) => {
   const link = `http://api.geonames.org/postalCodeSearchJSON?placename=${city}+${state}&country=US&maxRows=1&username=${process.env.GN_USERNAME}`;
-  console.log(link);
   return link;
 };
 
 app.get('/getGeoNames/:city/:state', async (req, res) => {
   let { city, state } = req.params;
-  console.log(city, state);
   const response = await fetch(geoURL(city, state));
   try {
     const data = await response.json();
-    // console.log(data);
-    // return data;
     res.send(data.postalCodes);
   } catch (error) {
-    console.log('error', error);
+    res.status(500).send({ error: 'Something is wrong' });
   }
 });
 

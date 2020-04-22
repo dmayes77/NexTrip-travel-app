@@ -8,7 +8,7 @@ function handleSubmit(event) {
   let state = document.getElementById('location').value.split(', ')[1];
   let date = document.getElementById('date').value;
 
-  console.log('::: Form Submitted :::', city, state);
+  console.log('::: Form Submitted :::');
 
   if (state != undefined) {
     checkDate(date)
