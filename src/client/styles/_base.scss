@@ -5,16 +5,11 @@ html {
 }
 
 body {
-  display: block;
-  flex-direction: column;
   font-family: 'Montserrat', arial, sans-serif;
   font-weight: 300;
   color: $blue;
   margin: 0 auto;
   line-height: 1.65;
-  position: relative;
-  background-size: cover;
-  background-position: center;
 }
 
 h1 {
@@ -33,6 +28,9 @@ h3 {
 }
 
 @media (max-width: 1024px) {
+  html {
+    overflow-x: hidden;
+  }
   h1 {
     font-size: $xl * 1.5;
   }
