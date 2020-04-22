@@ -67,6 +67,10 @@ main {
     font-family: 'Montserrat';
     font-weight: 700;
   }
+  #error {
+    color: red;
+    font-size: $sm;
+  }
 }
 
 @media (max-width: 1024px) {
