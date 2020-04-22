@@ -1,9 +1,12 @@
 import moment from 'moment';
 
+//style="background-image: url(${data.imgURL})"
+
 const updateUI = (data, date) => {
   let displayData = `          
     <div id="card">
-      <div id="card-header" style="background-image: url(${data.imgURL})">
+      <div id="card-header" >
+      <img src="${data.imgURL}"/>
         
         <h3 class="bottom-left">${data.city}, ${data.state}</h3>
       </div>
@@ -108,7 +111,7 @@ const updateUI = (data, date) => {
               <img src="https://www.weatherbit.io/static/img/icons/${
                 daily.weather.icon
               }.png"/>
-              <p>${daily.weather.description}</p>
+              <p id="description">${daily.weather.description}</p>
             </div>
             <div class="flip-card-back">
               <p>John Doe</p>
