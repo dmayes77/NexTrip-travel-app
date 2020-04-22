@@ -2,10 +2,12 @@ import 'regenerator-runtime/runtime.js';
 
 let data = [];
 
-const getData = async (url, location) => {
-  const geoRes = await fetch(`${url}/getGeoNames/${location}`);
+const getData = async (url, city, state) => {
+  console.log(`${url}/getGeoNames/${city}/${state}`);
+  const geoRes = await fetch(`${url}/getGeoNames/${city}/${state}`);
   try {
     const geoData = await geoRes.json();
+    console.log(geoData);
     let { lat, lng, placeName } = geoData[0];
     // get weather
     const weatherRes = await fetch(`${url}/getWeather/${lat}/${lng}`);
