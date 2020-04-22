@@ -27,7 +27,7 @@ html
       <section id="entry-container">
         <form class="" onsubmit="return Client.handleSubmit(event)">
           <label for="location"
-            >Enter City and State or Zipcode and Arrival Date here</label
+            >Enter US City and State and Arrival Date here</label
           >
           <div id="inputArea">
             <input
@@ -45,6 +45,8 @@ html
               placeholder="12/25/2020"
             />
           </div>
+          <div id="error"></div>
+          <!-- <div id="date-error"></div> -->
 
           <input
             class="button"
