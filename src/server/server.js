@@ -36,13 +36,16 @@ app.post('/travel', (req, res) => {
   res.send(projectData);
 });
 
-const geoURL = (destination) => {
-  return `http://api.geonames.org/postalCodeSearchJSON?placename=${destination}&country=US&maxRows=1&username=${process.env.GN_USERNAME}`;
+const geoURL = (city, state) => {
+  const link = `http://api.geonames.org/postalCodeSearchJSON?placename=${city}+${state}&country=US&maxRows=1&username=${process.env.GN_USERNAME}`;
+  console.log(link);
+  return link;
 };
 
-app.get('/getGeoNames/:destination', async (req, res) => {
-  let { destination } = req.params;
-  const response = await fetch(geoURL(destination));
+app.get('/getGeoNames/:city/:state', async (req, res) => {
+  let { city, state } = req.params;
+  console.log(city, state);
+  const response = await fetch(geoURL(city, state));
   try {
     const data = await response.json();
     // console.log(data);
