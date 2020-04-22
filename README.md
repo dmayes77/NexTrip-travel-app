@@ -3,13 +3,13 @@
 Plan your next trip.  
 See local restaurant reviews, events, and weather.  
 Will give you forecast for 5 days.  
-US cities only!!
+This app is set up to display information for US cities only!!
 
 ## How to get the app
 
-### Clone or download the project on your computer
+#### Clone or download the project on your computer
 
-### Open the terminal, cd in the project folder and run the following commands:
+#### Open the terminal, cd in the project folder and run the following commands:
 
 ```markdown
 - npm i (to install all the packages)
@@ -35,14 +35,14 @@ The provided .env.example includes api key examples needed to run this file.
    Replace the value to `YELP_API_KEY` and `YELP_CLIENT_ID` with your personal API key and ID in `.env.example`.
 5. Rename file `.env.example` to `.env`.
 
-## How to run the tests:
+## How to run the tests
 
 ```markdown
 - npm run test (this will run 2 tests)
 - Make sure the server is NOT running to pass the server test!
 ```
 
-## What extra features I added:
+## Extras
 
 - Display countdown in forecast
 - Pull an image for cities without images
