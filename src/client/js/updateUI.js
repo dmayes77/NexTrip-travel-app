@@ -2,13 +2,13 @@ import moment from 'moment';
 
 //style="background-image: url(${data.imgURL})"
 
-const updateUI = (data, date) => {
+const updateUI = async (city, state, data, date) => {
   let displayData = `          
     <div id="card">
       <div id="card-header" >
       <img src="${data.imgURL}"/>
         
-        <h3 class="bottom-left">${data.city}, ${data.state}</h3>
+        <h3 class="bottom-left">${city}, ${state}</h3>
       </div>
 
       <div id="card-container">
@@ -34,7 +34,7 @@ const updateUI = (data, date) => {
       </div>`;
 
   const { restaurants } = data;
-  let restaurantsDisplay = restaurants.map((restaurant) => {
+  let restaurantsDisplay = await restaurants.map((restaurant) => {
     return `
       <div class='flip-card'>
         <div class='flip-card-inner'>
@@ -58,7 +58,7 @@ const updateUI = (data, date) => {
   });
 
   const { events } = data;
-  let eventsDisplay = events.map((event) => {
+  let eventsDisplay = await events.map((event) => {
     return `<div class='flip-card'>
         <div class='flip-card-inner'>
           <div class='flip-card-front'>
@@ -86,10 +86,13 @@ const updateUI = (data, date) => {
 
   let datesArr = [];
   let dates = Client.getDates(new Date(y, m, d), new Date(y, m, d + 4));
-  dates.forEach((date) => datesArr.push(moment(date).format('YYYY-MM-DD')));
+  dates.forEach((newDate) =>
+    datesArr.push(moment(newDate).format('YYYY-MM-DD'))
+  );
 
   const { forecast } = data;
-  let forcastDisplay = forecast
+
+  let forcastDisplay = await forecast
     .filter((daily) => {
       if (datesArr.includes(daily.datetime)) {
         return true;
