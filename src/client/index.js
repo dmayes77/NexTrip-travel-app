@@ -1,4 +1,4 @@
-import { getData, postData } from './js/app';
+import { getData } from './js/app';
 import { updateUI } from './js/updateUI';
 import { handleSubmit } from './js/handleSubmit';
 import { getDates } from './js/getDates';
@@ -10,4 +10,4 @@ import './styles/main.scss';
 import './styles/header.scss';
 import './styles/_card.scss';
 
-export { handleSubmit, getData, postData, updateUI, getDates };
+export { handleSubmit, getData, updateUI, getDates };
