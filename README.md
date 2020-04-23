@@ -1,4 +1,4 @@
-## NexTrip - Udacity Travel App Capstone
+## NexTrip - Travel App
 
 Plan your next trip.  
 See local restaurant reviews, events, and weather.  
