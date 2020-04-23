@@ -72,7 +72,8 @@ const pixURL = (city) => {
   return `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${city}+city&image_type=photo&SameSite=None`;
 };
 
-const noImgURL = `https://pixabay.com/get/57e0d44a435bad14f1dc8460962932771039dee6504c704c7d287fdd9245c55e_640.jpg`;
+const noImgURL =
+  'https://cdn.pixabay.com/photo/2015/11/03/09/03/see-1019991_1280.jpg';
 
 app.get('/getImage/:city', async (req, res) => {
   let { city } = req.params;
@@ -82,7 +83,9 @@ app.get('/getImage/:city', async (req, res) => {
     const data = await response.json();
     data.total !== 0
       ? res.send({ imgURL: data.hits[0].largeImageURL })
-      : res.send({ imgURL: noImgURL });
+      : res.send({
+          imgURL: noImgURL,
+        });
   } catch (error) {
     console.log('error', error);
   }
