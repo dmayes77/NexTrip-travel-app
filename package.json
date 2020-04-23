@@ -9,7 +9,12 @@
     "client-start": "webpack-dev-server  --config webpack.dev.js --open",
     "build-prod": "rm -rf dist && webpack --config webpack.prod.js",
     "build-dev": "rm -rf dist && webpack --config webpack.dev.js",
-    "dev": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'yellow,blue' --kill-others  'npm:server-start' 'npm:client-start'"
+    "dev": "concurrently --names 'SERVER,CLIENT' --prefix-colors 'yellow,blue' --kill-others  'npm:server-start' 'npm:client-start'",
+    "start:server": "node src/server/server.js",
+    "start": "npm run build-prod && npm run start"
+  },
+  "engines": {
+    "node": "13.11.0"
   },
   "keywords": [],
   "author": "David Mayes",
